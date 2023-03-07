@@ -1,11 +1,11 @@
 (function () {
 'use strict';
 
-angular.module('LunchCheckerApp', [])
-.controller('LunchCheckerController', LunchCheckerController);
-LunchCheckerController.$inject = ['$scope'];
+angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckController);
+LunchCheckController.$inject = ['$scope'];
 
-function LunchCheckerController($scope) {
+function LunchCheckController($scope) {
 
   var sayMessage = function(NumOfItems) {
   if(NumOfItems >3){
@@ -24,9 +24,7 @@ function LunchCheckerController($scope) {
     var totalItems=0;
     if(items !=""){
     const arrayOfItems = items.split(",");
-    console.log(arrayOfItems);
     totalItems= arrayOfItems.length;
-    console.log(totalItems);
     return totalItems;
     }
     else{
@@ -36,9 +34,7 @@ function LunchCheckerController($scope) {
 
   $scope.CheckIfTooMuch = function (){
    var items =  document.getElementById('lunch-menu').value;
-   console.log(items);
    var NoOfItems=splitItems(items);
-   console.log(NoOfItems);
    $scope.message=sayMessage(NoOfItems);
   }
 }
